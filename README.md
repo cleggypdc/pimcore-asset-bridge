@@ -1,37 +1,22 @@
-# Pimcore Asset Bridge
+# 🛠 Pimcore Asset Bridge
 
-# 🚧🚫 DO NOT USE IN PRODUCTION 🚫🚧
+🔋 Connect your file systems to Pimcore’s Digital Asset Management (DAM) in real-time using a lightweight daemon written in rust!
 
-> **Warning!**  
-> This project is a work in progress, still full of TODOs, missing features, untested code paths, and possibly haunted daemon processes. 👻  
->
-> If you try to deploy this without understanding what it does, you will probably lose files, your sanity, and possibly your last shred of patience.  
->
-> **Proceed at your own risk!**  
-> (Or even better — fork it, contribute, and help make it stable!)  
->
-> ---
+**AssetBridge** monitors filesystem changes, batches them, and updates Pimcore assets — all with high performance and minimal configuration.
+
+## ✨ Features
+ - 📁 Real-time file create, modify, delete, and rename detection
+ - ⚡ Batched JSON event output with precise timestamps
+ - 🧹 Graceful shutdown handling (Ctrl+C, SIGTERM)
+ - 💇️ Seamless integration with Pimcore DAM
+ - 🛡️ Built for reliability and low resource consumption
 
 
-**AssetBridge** connects external file systems to Pimcore’s Digital Asset Management (DAM) system in real-time.
+## 🛣️ Current Status
+**Early Development** — Core functionality is coming together, but many features are still planned. See the TODO section for roadmap details.
 
-It consists of:
-- `asset-bridge-daemon`: A lightweight, high-performance Rust daemon monitoring filesystem changes.
-- `AssetBridgeBundle`: A Symfony bundle for Pimcore that processes and synchronises file events into assets.
 
----
-
-## Features
-
-- Real-time detection of create, modify, delete, and rename events
-- Batched JSON event output with accurate timestamps
-- Graceful shutdown handling (Ctrl+c, SIGTERM)
-- Full asset synchronisation with Pimcore
-- Designed for high reliability and minimal resource usage
-
----
-
-## Installation
+## 📦 Installation
 
 ### 1. Install via Composer
 
@@ -39,19 +24,11 @@ It consists of:
 composer require cleggypdc/pimcore-asset-bridge
 ```
 
-This will install the AssetBridge Bundle and its required files, including the daemon binary.
-
----
-
 ### 2. Enable the Bundle
-
-After installation, enable the bundle in your Pimcore project:
 
 ```bash
 php bin/console pimcore:bundle:enable AssetBridgeBundle
 ```
-
----
 
 ### 3. (Optional) Verify Daemon Binary
 
@@ -67,24 +44,6 @@ You can test it manually:
 ./vendor/cleggypdc/pimcore-asset-bridge/bin/asset-bridge-daemon /path/to/watch
 ```
 
----
-
-### 4. Set Up AssetBridge Integration
-
-Use the provided Symfony command to process filesystem events into Pimcore:
-
-```bash
-cat events.json | php bin/console asset-bridge:process-events
-```
-
-or specify an input file:
-
-```bash
-php bin/console asset-bridge:process-events --input=/path/to/events.json
-```
-
----
-
 ## Example Setup Diagram
 
 ```plaintext
@@ -99,15 +58,11 @@ php bin/console asset-bridge:process-events --input=/path/to/events.json
 (Import / Update / Delete Pimcore Assets)
 ```
 
----
-
 ## Requirements
 
 - PHP 8.0 or higher
 - Pimcore 10.5+ or 11.x
 - Linux server (daemon binary currently targets Linux x86_64)
-
----
 
 ## TODO
 
@@ -144,8 +99,6 @@ php bin/console asset-bridge:process-events --input=/path/to/events.json
 ### QA / Maintenance
 - [ ] Write basic test coverage for daemon and Symfony command
 - [ ] Publish bundle to Packagist for wider adoption
-- [ ] 
----
 
 ## License
 
