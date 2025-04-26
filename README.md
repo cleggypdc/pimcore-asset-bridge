@@ -3,8 +3,8 @@
 **AssetBridge** connects external file systems to Pimcore’s Digital Asset Management (DAM) system in real-time.
 
 It consists of:
-- `asset-bridge-daemon`: A lightweight, high-performance Rust daemon for monitoring filesystem changes.
-- `AssetBridgeBundle`: A Symfony bundle for Pimcore that processes and synchronizes file events into assets.
+- `asset-bridge-daemon`: A lightweight, high-performance Rust daemon monitoring filesystem changes.
+- `AssetBridgeBundle`: A Symfony bundle for Pimcore that processes and synchronises file events into assets.
 
 ---
 
@@ -12,8 +12,8 @@ It consists of:
 
 - Real-time detection of create, modify, delete, and rename events
 - Batched JSON event output with accurate timestamps
-- Graceful shutdown handling (Ctrl+C, SIGTERM)
-- Full asset synchronization with Pimcore
+- Graceful shutdown handling (Ctrl+c, SIGTERM)
+- Full asset synchronisation with Pimcore
 - Designed for high reliability and minimal resource usage
 
 ---
@@ -106,8 +106,9 @@ php bin/console asset-bridge:process-events --input=/path/to/events.json
 
 ### Daemon Improvements
 - [ ] Allow daemon to flush batches dynamically based on event volume
+- [ ] Configure poll/update time of daemon for different usecases
 - [ ] Add optional configuration file support (e.g., YAML) for daemon
-- [ ] Detect remote filesystem mounts and handle accordingly
+- [ ] Detect remote filesystem mounts (Flysystem) and handle them accordingly
 - [ ] Build systemd service file for daemon to run automatically
 - [ ] Improve JSON event output (optional custom timestamp formats)
 - [ ] Support error logging and retries for failed asset operations
@@ -116,25 +117,21 @@ php bin/console asset-bridge:process-events --input=/path/to/events.json
 - [ ] Support block-level changes (advanced: use Pimcore Versions or Notes?)
 
 ### Architecture Improvements
-- [ ] Configure the daemon to use Pimcore Datahub API instead of local console
-- [ ] (Preferred) Expose a minimal API controller inside AssetBridgeBundle for event ingestion
+- [ ] Allow configuration of daemon to use Pimcore Datahub API instead of local console
+- [ ] Expose a minimal API controller inside AssetBridgeBundle for event ingestion
 - [ ] Allow daemon instances to be configured dynamically via Pimcore Settings UI
 
 ### Cross-Platform Support
-- [ ] (Optional) Add support for Windows/Mac binaries in the future
-- [ ] (Optional) Expose a Symfony command to control daemon (start/stop)
+- [ ] Expose a Symfony command to control daemon (start/stop)
+- [ ] Add support for Windows/Mac binaries in the future
 
 ### Monitoring & Metrics
-- [ ] (Optional) Add basic metrics (number of processed events, error counts)
-- [ ] (Optional) Add Prometheus exporter or simple `/metrics` endpoint (future)
+- [ ] Add basic metrics (number of processed events, error counts)
 
 ### QA / Maintenance
 - [ ] Write basic test coverage for daemon and Symfony command
-- [ ] (Optional) Publish bundle to Packagist for wider adoption
-
----
-
-
+- [ ] Publish bundle to Packagist for wider adoption
+- [ ] 
 ---
 
 ## License
