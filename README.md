@@ -1,5 +1,18 @@
 # Pimcore Asset Bridge
 
+# 🚧🚫 DO NOT USE IN PRODUCTION 🚫🚧
+
+> **Warning!**  
+> This project is a work in progress, still full of TODOs, missing features, untested code paths, and possibly haunted daemon processes. 👻  
+>
+> If you try to deploy this without understanding what it does, you will probably lose files, your sanity, and possibly your last shred of patience.  
+>
+> **Proceed at your own risk!**  
+> (Or even better — fork it, contribute, and help make it stable!)  
+>
+> ---
+
+
 **AssetBridge** connects external file systems to Pimcore’s Digital Asset Management (DAM) system in real-time.
 
 It consists of:
