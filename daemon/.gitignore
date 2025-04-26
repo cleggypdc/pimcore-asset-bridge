@@ -1,0 +1,9 @@
+# Rust build
+/target
+Cargo.lock
+
+# IDE junk
+.idea/
+.vscode/
+*.rs.bk
+.DS_Store

@@ -1,0 +1,25 @@
+{
+  "name": "cleggypdc/pimcore-asset-bridge",
+  "type": "pimcore-bundle",
+  "description": "Pimcore Bundle for syncing filesystem events into Digital Asset Management (DAM)",
+  "license": "GPL-3.0",
+  "autoload": {
+    "psr-4": {
+      "AssetBridgeBundle\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.0",
+    "pimcore/pimcore": "^10.5 || ^11.0"
+  },
+  "extra": {
+    "pimcore": {
+      "bundles": [
+        "AssetBridgeBundle\\AssetBridgeBundle"
+      ]
+    }
+  },
+  "bin": [
+    "bin/asset-bridge-daemon"
+  ]
+}
